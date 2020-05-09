@@ -1,0 +1,37 @@
+@startuml
+
+entity user {
+	+ id [PK]
+	--
+	name
+  	email
+  	credential
+}
+
+entity wish {
+	+ id [PK]
+	--
+  	url
+  	wished_at
+  	wished_by [FK]
+  	fullfilled_at
+}
+
+entity notification {
+	+ notify_for [PK]
+	notify_to
+}
+
+entity anniversary {
+	+ id [PK]
+	--
+	date
+	celebrated_for [FK]
+}
+
+
+user ----o{ wish
+user ----o| notification
+user ----o{ anniversary
+
+@enduml
